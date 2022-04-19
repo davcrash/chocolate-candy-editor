@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { fabric } from "fabric";
 import { Navbar, Container } from "react-bootstrap";
 import { CanvasContext } from "./CanvasContext";
+import Steper from "./components/Steper";
 
 const App = () => {
-  const [canvas, setCanvas] = useState("");
+  const [canvas, setCanvas] = useState(null);
 
   useEffect(() => {
     //TODO: create responsive design
@@ -31,7 +32,9 @@ const App = () => {
             <div className="col d-flex justify-content-center align-items-center">
               <canvas id="canvas" style={{ borderRadius: "0.7rem" }} />
             </div>
-            <div className="col-4 bg-light"></div>
+            <div className="col-4 bg-light">
+              <Steper />
+            </div>
           </div>
         </div>
       </div>
