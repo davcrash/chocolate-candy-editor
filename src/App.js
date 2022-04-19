@@ -1,29 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import { fabric } from 'fabric';
+import React, { useState, useEffect } from "react";
+import { fabric } from "fabric";
+import { Navbar, Container } from "react-bootstrap";
+import { CanvasContext } from "./CanvasContext";
+
 const App = () => {
-  const [canvas, setCanvas] = useState('');
+  const [canvas, setCanvas] = useState("");
 
   useEffect(() => {
+    //TODO: create responsive design
     setCanvas(initCanvas());
   }, []);
-  const initCanvas = () => (
-    new fabric.Canvas('canvas', {
-      backgroundColor: 'pink'
-    })
-  )
+
+  const initCanvas = () =>
+    new fabric.Canvas("canvas", {
+      backgroundColor: "#a98360",
+      height: 600,
+      width: 600,
+    });
+
   return (
-    <div>
-      <h1>Candy Creator</h1>
-      <div class="container bg-primary">
-        <div class="row ">
-          <div class="col">
-            <canvas id="canvas" height={'100%'} width={'100%'} />
+    <CanvasContext.Provider value={canvas}>
+      <Navbar sticky="top" bg="primary" variant="dark">
+        <Container>
+          <Navbar.Brand href="#home">Chocolate Candy Creator</Navbar.Brand>
+        </Container>
+      </Navbar>
+      <div>
+        <div className="container-fluid">
+          <div className="row" style={{ minHeight: "calc(100vh - 56px)" }}>
+            <div className="col d-flex justify-content-center align-items-center">
+              <canvas id="canvas" style={{ borderRadius: "0.7rem" }} />
+            </div>
+            <div className="col-4 bg-light"></div>
           </div>
         </div>
       </div>
-
-    </div>
+    </CanvasContext.Provider>
   );
-}
+};
 
 export default App;
