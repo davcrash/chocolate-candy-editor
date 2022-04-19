@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import SelectChoco from "./SelectChoco";
 
 const Steper = () => {
   const [step, setStep] = useState(StepsEnum.selectChoco);
@@ -30,9 +31,23 @@ const Steper = () => {
         break;
     }
   };
+
+  const renderCurrentStep = (currentStep) => {
+    switch (currentStep) {
+      case StepsEnum.selectChoco:
+        return <SelectChoco />;
+      case StepsEnum.editChoco:
+        return <h1>{currentStep.name}</h1>;
+      case StepsEnum.export:
+        return <h1>{currentStep.name}</h1>;
+      default:
+        break;
+    }
+  };
+
   return (
     <div className="">
-      <div>{step.name}</div>
+      <div>{renderCurrentStep(step)}</div>
       <div className="row">
         <div className="col-auto">
           <div className="d-grid gap-2">

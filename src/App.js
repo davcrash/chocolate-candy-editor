@@ -3,6 +3,7 @@ import { fabric } from "fabric";
 import { Navbar, Container } from "react-bootstrap";
 import { CanvasContext } from "./CanvasContext";
 import Steper from "./components/Steper";
+import { ChocoEnum } from "./ChocoEnum";
 
 const App = () => {
   const [canvas, setCanvas] = useState(null);
@@ -14,7 +15,7 @@ const App = () => {
 
   const initCanvas = () =>
     new fabric.Canvas("canvas", {
-      backgroundColor: "#a98360",
+      backgroundColor: ChocoEnum.white.color,
       height: 600,
       width: 600,
     });

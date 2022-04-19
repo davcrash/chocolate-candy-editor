@@ -1,3 +1,3 @@
-import React from 'react';
+import React from "react";
 
-export const CanvasContext = React.createContext('');
+export const CanvasContext = React.createContext(null);
