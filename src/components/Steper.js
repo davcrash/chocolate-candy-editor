@@ -42,7 +42,7 @@ const Steper = () => {
                 size="lg"
                 onClick={() => onPrevStep(step)}
               >
-                Prev
+                Back
               </Button>
             )}
           </div>
